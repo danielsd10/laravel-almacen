@@ -22,3 +22,9 @@ Route::get('/productos', function()
 });
 
 Route::get('/categorias', 'CategoriaController@getCategorias');
+
+Route::get('/categorias/crear', 'CategoriaController@crearCategorias');
+
+Route::post('/categorias', 'CategoriaController@saveCategorias');
+
+Route::get('/categorias/{id}', 'CategoriaController@getCategoria');

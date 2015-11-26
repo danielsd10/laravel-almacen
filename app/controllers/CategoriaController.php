@@ -8,23 +8,28 @@ class CategoriaController extends BaseController {
 		return View::make('categories', ['categorias' => $categorias]);
 	}
 
+	public function crearCategorias()
+	{
+		return View::make('categories_form');
+	}
+
 	public function getCategoria($id)
 	{
 		$categoria = Categoria::find($id);
 		return Response::json($categoria);
 	}
 
-	public function saveCategoria()
+	public function saveCategorias()
 	{
 		$nombre = Input::get('nombre');
 		$descripcion = Input::get('descripcion');
 
 		$categoria = new Categoria();
-		$categoria->nombre = $categoria;
+		$categoria->nombre = $nombre;
 		$categoria->descripcion = $descripcion;
 		$categoria->save();
 
-		return Response::json($categoria);
+		Redirect::to("/categorias");
 	}
 
 }
