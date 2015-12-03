@@ -16,10 +16,6 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('/productos', function()
-{
-	return View::make('products');
-});
 
 Route::get('/categorias', 'CategoriaController@getCategorias');
 
@@ -32,3 +28,16 @@ Route::get('/categorias/eliminar/{id}', 'CategoriaController@deleteCategorias');
 Route::post('/categorias', 'CategoriaController@saveCategorias');
 
 Route::get('/categorias/{id}', 'CategoriaController@getCategoria');
+
+
+Route::get('/productos', 'ProductoController@getProductos');
+
+Route::get('/productos/crear', 'ProductoController@crearProductos');
+
+Route::get('/productos/editar/{id}', 'ProductoController@editarProductos');
+
+Route::get('/productos/eliminar/{id}', 'ProductoController@deleteProductos');
+
+Route::post('/productos', 'ProductoController@saveProductos');
+
+Route::get('/productos/{id}', 'ProductoController@getProducto');

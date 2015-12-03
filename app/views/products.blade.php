@@ -9,7 +9,6 @@
             <div class="col-md-12">
                 <h1 class="page-header">
                     <span class="fa fa-cube"></span> Productos
-                    <small>Subtitle</small>
                 </h1>
             </div>
         </div>
@@ -28,9 +27,9 @@
                 </ol>
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-block btn-primary">
+                <a href="/productos/crear" class="btn btn-block btn-primary">
                     <span class="fa fa-plus"></span> Nuevo producto
-                </button>
+                </a>
             </div>
         </div>
         <!-- /.row -->
@@ -50,6 +49,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($productos as $producto)
                         <tr>
                             <td>
                                 <div class="btn-group">
@@ -57,67 +57,17 @@
                                         <span class="fa fa-bars"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-pencil-square-o"></i> Editar</a></li>
-                                        <li><a href="#"><i class="fa fa-trash-o"></i> Eliminar</a></li>
+                                        <li><a href="/productos/editar/{{$producto->id}}"><i class="fa fa-pencil-square-o"></i> Editar</a></li>
+                                        <li><a href="/productos/eliminar/{{$producto->id}}"><i class="fa fa-trash-o"></i> Eliminar</a></li>
                                     </ul>
                                 </div>
                             </td>
-                            <td>Pan 1Kg</td>
-                            <td>Alimentos</td>
-                            <td class="text-right">120.00</td>
-                            <td class="text-center">2015-01-01 00:00</td>
+                            <td>{{$producto->nombre}}</td>
+                            <td>{{$producto->categoria->nombre}}</td>
+                            <td class="text-right">{{$producto->precio}}</td>
+                            <td class="text-center">{{$producto->created_at}}</td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-                                        <span class="fa fa-bars"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-pencil-square-o"></i> Editar</a></li>
-                                        <li><a href="#"><i class="fa fa-trash-o"></i> Eliminar</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>Coca Cola 1Lt</td>
-                            <td>Bebidas</td>
-                            <td class="text-right">340.99</td>
-                            <td class="text-center">2015-01-01 00:00</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-                                        <span class="fa fa-bars"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-pencil-square-o"></i> Editar</a></li>
-                                        <li><a href="#"><i class="fa fa-trash-o"></i> Eliminar</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>Camisa</td>
-                            <td>Ropa y accesorios</td>
-                            <td class="text-right">20.00</td>
-                            <td class="text-center">2015-01-01 00:00</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-                                        <span class="fa fa-bars"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-pencil-square-o"></i> Editar</a></li>
-                                        <li><a href="#"><i class="fa fa-trash-o"></i> Eliminar</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>Horno microndas</td>
-                            <td>Artefactos para cocina</td>
-                            <td class="text-right">1000.00</td>
-                            <td class="text-center">2015-01-01 00:00</td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

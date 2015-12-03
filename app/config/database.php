@@ -76,7 +76,7 @@ return array(
 
 		'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
-			'host'     => 'LABF21',
+			'host'     => 'LABF21\\SQLEXPRESS',
 			'database' => 'almacen',
 			'username' => 'sa',
 			'password' => 'sa',

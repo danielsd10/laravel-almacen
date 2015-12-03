@@ -16,10 +16,12 @@ CREATE TABLE productos(
 	[codigo] VARCHAR(20) NOT NULL,
 	[nombre] VARCHAR(100) NOT NULL,
 	[marca] VARCHAR(100) NULL,
+	[descripcion] TEXT,
 	[unidad_id] VARCHAR(5) NOT NULL,
 	[categoria_id] INT NOT NULL,
 	[precio] DECIMAL(8,2) NULL,
-	[fecha_registro] TIMESTAMP NOT NULL
+	[created_at] DATETIME NOT NULL,
+	[updated_at] DATETIME NOT NULL
 CONSTRAINT [PK_productos] PRIMARY KEY CLUSTERED ([id] ASC))
 GO
 

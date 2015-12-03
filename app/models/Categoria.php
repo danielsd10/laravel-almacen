@@ -11,4 +11,10 @@ class Categoria extends Eloquent
 	// using default timestamps
 	public $timestamps = false;
 
+	// one to many
+	public function productos()
+	{
+		return $this->hasMany('Producto');
+	}
+
 }
