@@ -4,8 +4,14 @@ class ProductoController extends BaseController {
 
 	public function getProductos()
 	{
-		$productos = Producto::all();
-		return View::make('products', ['productos' => $productos]);
+		$categorias = Categoria::all();
+		$filtro_categoria = Input::get("categoria");
+		if(!empty($filtro_categoria)) {
+			$productos = Producto::where('categoria_id', '=', $filtro_categoria)->get();
+		} else {
+			$productos = Producto::all();
+		}
+		return View::make('products', ['productos' => $productos, 'categorias' => $categorias]);
 	}
 
 	public function crearProductos()

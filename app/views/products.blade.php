@@ -16,7 +16,7 @@
 
         <!-- Breadcrumb & Actions -->
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-home"></i>  <a href="index.html">Inicio</a>
@@ -25,6 +25,14 @@
                         <i class="fa fa-cube"></i> Productos
                     </li>
                 </ol>
+            </div>
+            <div class="col-md-2">
+                <select id="categoria" class="form-control">
+                    <option value="" selected>(Todos)</option>
+                    @foreach($categorias as $categoria)
+                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-md-2">
                 <a href="/productos/crear" class="btn btn-block btn-primary">
@@ -43,9 +51,9 @@
                         <tr>
                             <th style="width: 30px;"></th>
                             <th>Nombre</th>
+                            <th>Marca</th>
                             <th>Categoría</th>
                             <th>Precio</th>
-                            <th>Fecha de registro</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,9 +71,9 @@
                                 </div>
                             </td>
                             <td>{{$producto->nombre}}</td>
-                            <td>{{$producto->categoria->nombre}}</td>
+                            <td>{{$producto->marca}}</td>
+                            <td class="text-center">{{$producto->categoria->nombre}}</td>
                             <td class="text-right">{{$producto->precio}}</td>
-                            <td class="text-center">{{$producto->created_at}}</td>
                         </tr>
                         @endforeach
                         </tbody>
@@ -78,4 +86,15 @@
     </div>
     <!-- /.container-fluid -->
 
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function(){
+            $("#categoria").change(function(){
+                var categoria = $("#categoria option:selected").val();
+                window.open('/productos?categoria=' + categoria, "_self");
+            });
+        });
+    </script>
 @endsection
