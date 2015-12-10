@@ -27,8 +27,6 @@ Route::get('/categorias/eliminar/{id}', 'CategoriaController@deleteCategorias');
 
 Route::post('/categorias', 'CategoriaController@saveCategorias');
 
-Route::get('/categorias/{id}', 'CategoriaController@getCategoria');
-
 
 Route::get('/productos', 'ProductoController@getProductos');
 
@@ -41,3 +39,10 @@ Route::get('/productos/eliminar/{id}', 'ProductoController@deleteProductos');
 Route::post('/productos', 'ProductoController@saveProductos');
 
 Route::get('/productos/{id}', 'ProductoController@getProducto');
+
+/* Rutas de la API */
+
+Route::get('/api/categorias', 'ApiController@getCategorias');
+
+Route::get('/api/productos', 'ApiController@getProductos');
+

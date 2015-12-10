@@ -30,7 +30,7 @@
                 <select id="categoria" class="form-control">
                     <option value="" selected>(Todos)</option>
                     @foreach($categorias as $categoria)
-                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                        <option value="{{$categoria->id}}" @if(Request::input('categoria')==$categoria->id) selected @endif>{{$categoria->nombre}}</option>
                     @endforeach
                 </select>
             </div>
